@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tamaa</string>
+    <string name="title_home">Trouver</string>
+    <string name="title_dashboard">Vendre</string>
+    <string name="title_notifications">Classement</string>
+    <string name="submit">Aloha</string>
+    <string name="username">Utilisateur</string>
+    <string name="password">Mot de Passe</string>
+    <string name="signin">Accéder</string>
+    <string name="cancel">Annuler</string>
+    <string name="layout_root">Annuler</string>
+
+</resources>

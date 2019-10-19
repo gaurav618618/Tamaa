@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "580799986342",
+    "firebase_url": "https://tamaa-78238.firebaseio.com",
+    "project_id": "tamaa-78238",
+    "storage_bucket": "tamaa-78238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580799986342:android:0375101f641ee68e7a9267",
+        "android_client_info": {
+          "package_name": "com.example.tamaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580799986342-6fobkm001rkq7adh9hlmbol4v00se269.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUXRyl-y8trqSRY2N__ew1mv1PRd6wo0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580799986342-6fobkm001rkq7adh9hlmbol4v00se269.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
