@@ -27,8 +27,9 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     val db = FirebaseFirestore.getInstance()
 
-    val chaptersList: ArrayList<String> = ArrayList()
+
     private lateinit var layoutManager: RecyclerView.LayoutManager
+    val chaptersList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,39 +39,22 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val recyclerViewer = root.findViewById<RecyclerView>(R.id.rvContacts)
         val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.text.observe(this, Observer {
             textView.text = it
         })
-        getPosts()
-        chaptersList.add("Android MVP Introduction")
-        chaptersList.add("Aloha2")
-        chaptersList.add("Aloha3")
-
 
         var rvChapterList2 = root.findViewById<RecyclerView>(R.id.rvContacts)
-        layoutManager = LinearLayoutManager(activity)
-        rvChapterList2.layoutManager = layoutManager
-        rvChapterList2.adapter = ChapterAdapter(activity as MainActivity, chaptersList)
 
+        db.collection("Posts").get().addOnSuccessListener { result ->
+            for (document in result) {
+                chaptersList.add(document.data["name"].toString())
+            }
+            layoutManager = LinearLayoutManager(activity)
+            rvChapterList2.layoutManager = layoutManager
+            rvChapterList2.adapter = ChapterAdapter(activity as MainActivity, chaptersList)
+        }
 
         return root
-
-
     }
-
-    private fun getPosts(){
-        db.collection("Posts")
-            .get()
-            .addOnSuccessListener { result ->
-                System.out.println("Success")
-                //for (document in result) {
-                //}
-            }
-            .addOnFailureListener {exception ->
-                System.out.println(exception)
-            }
-    }
-
 }
