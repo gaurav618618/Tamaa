@@ -1,13 +1,13 @@
-package com.example.tamaa.ui.notifications
+package com.example.tamaa.ui.rankings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class RankingsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Classement des vendeurs"
+        value = ""
     }
     val text: LiveData<String> = _text
 }

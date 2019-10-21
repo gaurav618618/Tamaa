@@ -1,4 +1,4 @@
-package com.example.tamaa.ui.home
+package com.example.tamaa.ui.rankings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,13 +15,12 @@ import com.example.tamaa.MainActivity
 import com.example.tamaa.R
 import com.google.firebase.firestore.FirebaseFirestore
 
+class RankingsFragment : Fragment() {
 
-class HomeFragment : Fragment() {
-
-    private lateinit var homeViewModel: HomeViewModel
-    val db = FirebaseFirestore.getInstance()
+    private lateinit var notificationsViewModel: RankingsViewModel
 
     private lateinit var layoutManager: RecyclerView.LayoutManager
+    val db = FirebaseFirestore.getInstance()
     val chaptersList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(
@@ -29,15 +28,16 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
+        notificationsViewModel =
+            ViewModelProviders.of(this).get(RankingsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+
+        notificationsViewModel.text.observe(this, Observer {
             textView.text = it
         })
 
-        var rvChapterList2 = root.findViewById<RecyclerView>(R.id.rvContacts)
+        var rvChapterList2 = root.findViewById<RecyclerView>(R.id.rvRankings)
 
         db.collection("Posts").get().addOnSuccessListener { result ->
             for (document in result) {

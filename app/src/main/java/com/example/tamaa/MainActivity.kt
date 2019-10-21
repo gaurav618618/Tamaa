@@ -12,7 +12,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 
-
 import android.app.AlertDialog
 import android.widget.EditText
 import android.text.InputType
@@ -27,21 +26,12 @@ import android.content.Intent
 import android.app.Activity
 import android.widget.Toast
 import android.app.TimePickerDialog
-import android.content.DialogInterface
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.media.Image
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import java.util.Calendar
 
 import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.database.DatabaseReference
-//import com.google.firebase.database.Exclude
-//import com.google.firebase.database.FirebaseDatabase
-//import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
