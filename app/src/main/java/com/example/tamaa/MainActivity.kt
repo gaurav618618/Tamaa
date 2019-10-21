@@ -31,6 +31,8 @@ import android.content.DialogInterface
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.media.Image
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.util.Calendar
 
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +41,7 @@ import com.google.firebase.auth.FirebaseAuth
 //import com.google.firebase.database.FirebaseDatabase
 //import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -48,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     val auth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     val user = auth.currentUser
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -152,8 +154,6 @@ class MainActivity : AppCompatActivity() {
             builder.show()
         }
 
-        getPosts()
-
     }
 
 
@@ -163,20 +163,6 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-
-    private fun getPosts() {
-        db.collection("Posts")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    System.out.println(document)
-                }
-            }
-            .addOnFailureListener {exception ->  
-                System.out.println(exception)
-            }
-    }
-
 
     private fun postAnnouncement(name: String, image: Drawable, price: Int, place: String, time: String ) {
         // Inflate the menu; this adds items to the action bar if it is present.
